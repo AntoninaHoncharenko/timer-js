@@ -16,3 +16,32 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: darkblue;
+}
+
+.field:first-child {
+  color: darkgreen;
+}
+
+.timer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.value {
+  font-size: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  margin-left: auto;
+  margin-right: auto;
+}
