@@ -12,7 +12,7 @@ const refs = {
 };
 
 refs.btn.disabled = true;
-let dataSelected = null;
+let deadline = null;
 
 const options = {
   enableTime: true,
@@ -22,6 +22,7 @@ const options = {
   onClose(selectedDates) {
     console.log(selectedDates[0]);
     dataSelected = selectedDates[0];
+    deadline = dataSelected.getTime();
 
     const delta = dataSelected.getTime() - Date.now();
 
@@ -62,19 +63,19 @@ function convertMs(ms) {
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
-const DEADLINE = new Date(2022, 9, 8, 16, 50);
+// const DEADLINE = new Date(2022, 9, 8, 16, 50);
 
 refs.btn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
-  start(DEADLINE);
+  start(deadline);
 }
 
 function start(deadline) {
-  const delta = deadline.getTime() - Date.now();
+  const delta = deadline - Date.now();
 
   intervalId = setInterval(() => {
-    const delta = deadline.getTime() - Date.now();
+    const delta = deadline - Date.now();
     if (delta <= 1000) {
       console.log('ДЕДЛАЙН');
       clearInterval(intervalId);
