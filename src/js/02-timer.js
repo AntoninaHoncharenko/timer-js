@@ -62,7 +62,7 @@ function convertMs(ms) {
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
-const DEADLINE = new Date(2022, 9, 7, 23, 33);
+const DEADLINE = new Date(2022, 9, 8, 16, 50);
 
 refs.btn.addEventListener('click', onStartBtnClick);
 
