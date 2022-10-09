@@ -21,10 +21,10 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
-    dataSelected = selectedDates[0];
+    let dataSelected = selectedDates[0];
     deadline = dataSelected.getTime();
 
-    const delta = dataSelected.getTime() - Date.now();
+    const delta = deadline - Date.now();
 
     if (delta <= 0) {
       Notify.failure('Please choose a date in the future', {
@@ -58,12 +58,6 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
-
-// const DEADLINE = new Date(2022, 9, 8, 16, 50);
 
 refs.btn.addEventListener('click', onStartBtnClick);
 
