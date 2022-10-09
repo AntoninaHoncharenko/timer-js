@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 refs = {
   form: document.querySelector('form'),
   delayInput: document.querySelector('[name="delay"]'),
@@ -7,43 +9,44 @@ refs = {
 
 refs.form.addEventListener('submit', onSubmit);
 
-let delayValue = null;
-let amount = null;
-let step = null;
-
 function createPromise(position, delay) {
-  delayValue = Number(refs.delayInput.value);
+  const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const shouldResolve = Math.random() > 0.3;
-
       if (shouldResolve) {
-        resolve({ position: position, delay: delayValue });
+        resolve({ position, delay });
       } else {
-        reject({ position: position, delay: delayValue });
+        reject({ position, delay });
       }
-    }, delayValue);
+    }, delay);
   });
 }
 
 function onSubmit(event) {
   event.preventDefault();
-  amount = Number(refs.amountInput.value);
+  let delay = Number(refs.delayInput.value);
+  const amount = Number(refs.amountInput.value);
+  const step = Number(refs.stepInput.value);
+
+  if (delay < 0 || amount <= 0 || step < 0) {
+    Notify.failure('Please enter positive value', {
+      position: 'center-center',
+      backOverlay: 'true',
+      clickToClose: true,
+    });
+    refs.form.reset();
+    return;
+  }
 
   for (let i = 0; i < amount; i += 1) {
-    // console.log(i);
-    step = Number(refs.stepInput.value);
-    // let interval = delayValue + step;
-    // console.log(delayValue);
-    // console.log(interval);
-
-    createPromise(amount, delayValue)
+    createPromise(i + 1, delay)
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
-    delayValue += step;
+    delay += step;
   }
+  refs.form.reset();
 }
