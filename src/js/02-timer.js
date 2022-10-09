@@ -68,7 +68,7 @@ function onStartBtnClick() {
 function start(deadline) {
   const delta = deadline - Date.now();
 
-  intervalId = setInterval(() => {
+  const intervalId = setInterval(() => {
     const delta = deadline - Date.now();
     if (delta <= 1000) {
       console.log('ДЕДЛАЙН');
