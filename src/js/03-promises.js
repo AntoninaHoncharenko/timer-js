@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-refs = {
+const refs = {
   form: document.querySelector('form'),
   delayInput: document.querySelector('[name="delay"]'),
   stepInput: document.querySelector('[name="step"]'),
