@@ -62,6 +62,7 @@ function convertMs(ms) {
 refs.btn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
+  refs.btn.disabled = true;
   start(deadline);
 }
 
@@ -70,7 +71,7 @@ function start(deadline) {
 
   const intervalId = setInterval(() => {
     const delta = deadline - Date.now();
-    if (delta <= 1000) {
+    if (delta <= 200) {
       console.log('ДЕДЛАЙН');
       clearInterval(intervalId);
       Notify.success('Deadline!', {
