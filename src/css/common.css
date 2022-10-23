@@ -13,13 +13,16 @@ body {
 }
 
 .form-container {
-  width: 600px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
   width: 210px;
   height: 40px;
   padding: 8px;
+  margin-right: 6px;
   border-radius: 5px;
   border: 2px solid darkblue;
   outline: none;
