@@ -2,17 +2,17 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://AntoninaHoncharenko.github.io/goit-js-hw-09",
+  "homepage": "https://AntoninaHoncharenko.github.io/timer-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
+    "build": "parcel build src/*.html --public-url /timer-js/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AntoninaHoncharenko/goit-js-hw-09.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Antonina Honcharenko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
