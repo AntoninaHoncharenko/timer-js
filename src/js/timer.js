@@ -72,9 +72,8 @@ function start(deadline) {
   const intervalId = setInterval(() => {
     const delta = deadline - Date.now();
     if (delta <= 200) {
-      console.log('ДЕДЛАЙН');
       clearInterval(intervalId);
-      Notify.success('Deadline!', {
+      Notify.info('Deadline!', {
         position: 'center-center',
         backOverlay: 'true',
         clickToClose: true,
